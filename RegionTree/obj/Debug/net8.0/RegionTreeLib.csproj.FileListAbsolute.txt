@@ -1,0 +1,11 @@
+D:\Институт\offer-jun-cs\RegionTree\bin\Debug\net8.0\RegionTreeLib.deps.json
+D:\Институт\offer-jun-cs\RegionTree\bin\Debug\net8.0\RegionTreeLib.dll
+D:\Институт\offer-jun-cs\RegionTree\bin\Debug\net8.0\RegionTreeLib.pdb
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.AssemblyInfoInputs.cache
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.AssemblyInfo.cs
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.csproj.CoreCompileInputs.cache
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.dll
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\refint\RegionTreeLib.dll
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.pdb
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\ref\RegionTreeLib.dll
