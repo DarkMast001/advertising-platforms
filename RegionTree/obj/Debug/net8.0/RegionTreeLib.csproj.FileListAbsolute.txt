@@ -9,3 +9,4 @@ D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.dll
 D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\refint\RegionTreeLib.dll
 D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.pdb
 D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\ref\RegionTreeLib.dll
+D:\Институт\offer-jun-cs\RegionTree\obj\Debug\net8.0\RegionTreeLib.sourcelink.json

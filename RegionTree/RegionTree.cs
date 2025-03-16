@@ -49,22 +49,21 @@ namespace RegionTreeLib
         }
 
         private Node? head;
-        private List<string> allAds = new List<string>() { "" };
-        private int counterErrors;
+        private List<string> allAds;
 
-        public Node? Head
+        public bool isTreeCreated()
         {
-            get => head;
+            return head == null ? false : true;
         }
 
         /// <summary>
         /// Конструктор создания дерева регионов
         /// </summary>
         /// <param name="pathToFile">Путь до файла, в котором в строчку написаны рекламные площадки и их регион</param>
-        public RegionTree(string? pathToFile) 
+        public RegionTree(string pathToFile) 
         {
             head = null;
-            counterErrors = 0;
+            allAds = new List<string>() { "" };
 
             if (!File.Exists(pathToFile))
             {
@@ -75,7 +74,18 @@ namespace RegionTreeLib
             foreach (string line in lines)
             {
                 if (line != "")
-                    addNoteToTree(line.Trim());
+                {
+                    try
+                    {
+                        addNoteToTree(line.Trim());
+                    }
+                    catch
+                    {
+                        head = null;
+                        allAds = new List<string>() { "" };
+                        throw;
+                    }
+                }
             }
         }
 
@@ -83,18 +93,13 @@ namespace RegionTreeLib
         /// Делает дерево
         /// </summary>
         /// <param name="note">Строчка из файла вида "Ревдинский рабочий:/ru/svrd/revda,/ru/svrd/pervik"</param>
+        /// <exception cref="Exception">Если уже было создано дерево с корневым каталогом /ru, а пользователь пытается добавить /en.</exception>
         private void addNoteToTree(string note)
         {
             string adName;
 
             List<string> regions = parseNote(note, out adName);
 
-            //int index = allAds.BinarySearch(adName);
-            //if (index < 0)
-            //{
-            //    allAds.Insert(~index, adName);
-            //    index = ~index;
-            //}
             int index = -1;
             if (!allAds.Contains(adName))
             {
@@ -117,6 +122,13 @@ namespace RegionTreeLib
                 {
                     if (i == regionPathComponents.Count - 1)
                     {
+                        // Условие выполнится в том случае, если уже было создано дерево с корневым
+                        // каталогом /ru, а пользователь пытается добавить /en.
+                        // Ошибка кричисеская - кидаем исключение
+                        if (regionPathComponents[i] != current.NodeName)
+                        {
+                            throw new Exception("Different root directory names");
+                        }
                         current.AdIndex = index;
                         break;
                     }
@@ -136,29 +148,29 @@ namespace RegionTreeLib
             }
         }
 
-        /* public static void seeFilesInExetutableDirectory()
-         {
-             string currentDirectory = Directory.GetCurrentDirectory();
+        public static void seeFilesInExetutableDirectory()
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
 
-             Console.WriteLine($"Текущая директория: {currentDirectory}");
-             Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Текущая директория: {currentDirectory}");
+            Console.WriteLine("----------------------------------------");
 
-             string[] directories = Directory.GetDirectories(currentDirectory);
+            string[] directories = Directory.GetDirectories(currentDirectory);
 
-             Console.WriteLine("Каталоги:");
-             foreach (string dir in directories)
-             {
-                 Console.WriteLine(dir);
-             }
+            Console.WriteLine("Каталоги:");
+            foreach (string dir in directories)
+            {
+                Console.WriteLine(dir);
+            }
 
-             string[] files = Directory.GetFiles(currentDirectory);
+            string[] files = Directory.GetFiles(currentDirectory);
 
-             Console.WriteLine("\nФайлы:");
-             foreach (string file in files)
-             {
-                 Console.WriteLine(file);
-             }
-         }*/
+            Console.WriteLine("\nФайлы:");
+            foreach (string file in files)
+            {
+                Console.WriteLine(file);
+            }
+        }
 
         /// <summary>
         /// Выводит рекламные площадки для заданной локации.
@@ -167,7 +179,7 @@ namespace RegionTreeLib
         /// <returns>Список рекламных площадок в этой локации</returns>
         public List<string>? findNote(string? pathToNote)
         {
-            if (pathToNote == null)
+            if (pathToNote == null || pathToNote == "" || isTreeCreated() == false)
                 return null;
             List<string> regions = pathToNote.Split('/').ToList();
             regions.RemoveAll(item => item == "");

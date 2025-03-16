@@ -7,16 +7,23 @@ namespace LibraryTester
         static void Main(string[] args)
         {
             Console.WriteLine("Введите имя файла: ");
-            string? pathToFile = "./regions.txt";
+            string pathToFile = "./regions.txt";
             //string? pathToFile = Console.ReadLine();
             RegionTree rt = new RegionTree(pathToFile);
 
-            while (rt.Head == null)
+            while (!rt.isTreeCreated())
             {
                 Console.WriteLine("Такого файла нет. Попробуйте ещё раз.");
                 Console.WriteLine("Введите имя файла: ");
                 pathToFile = Console.ReadLine();
-                rt = new RegionTree(pathToFile);
+                try
+                {
+                    rt = new RegionTree(pathToFile);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
             
             Console.WriteLine("Успех! Дерево построено!");
