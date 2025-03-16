@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "WebServiceForAdvertisingPlatforms.Controllers.AdsController",
+    "Method": "SearchAds",
+    "RelativePath": "api/Ads/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "region",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebServiceForAdvertisingPlatforms.Controllers.AdsController",
+    "Method": "UploadFile",
+    "RelativePath": "api/Ads/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filePath",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
