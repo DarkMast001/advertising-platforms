@@ -6,14 +6,31 @@ namespace WebServiceForAdvertisingPlatforms.Service
     {
         private RegionTree _regionTree;
 
+        public RegionTreeService()
+        {
+            _regionTree = new RegionTree();
+        }
+
+        public bool isTreeCreated()
+        {
+            return _regionTree.isTreeCreated();
+        }
+
         public void LoadDataFromFile(string filePath)
         {
-            _regionTree = new RegionTree(filePath);
+            try
+            {
+                _regionTree.createTree(filePath);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public List<string> GetAdsByRegion(string region)
         {
-            return _regionTree.findNote(region) ?? new List<string>();
+            return _regionTree.findNote(region);
         }
     }
 }

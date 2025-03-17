@@ -4,11 +4,6 @@ using WebServiceForAdvertisingPlatforms.Service;
 
 namespace WebServiceForAdvertisingPlatforms.Controllers
 {
-    public class FileUploadRequest
-    {
-        public string FilePath { get; set; }
-    }
-
     [Route("api/[controller]")]
     [ApiController]
     public class AdsController : ControllerBase
@@ -20,14 +15,12 @@ namespace WebServiceForAdvertisingPlatforms.Controllers
             _regionTreeService = regionTreeService;
         }
 
-        // Загрузка данных из файла
         [HttpPost("upload")]
         public IActionResult UploadFile([FromBody] string filePath)
         {
             try
             {
                 _regionTreeService.LoadDataFromFile(filePath);
-                return Ok($"Данные успешно загружены.");
             }
             catch (FileNotFoundException ex)
             {
@@ -37,9 +30,9 @@ namespace WebServiceForAdvertisingPlatforms.Controllers
             {
                 return BadRequest(ex.Message);
             }
+            return Ok($"Данные успешно загружены.");
         }
 
-        // Поиск рекламных площадок по региону
         [HttpGet("search")]
         public IActionResult SearchAds([FromQuery] string region)
         {

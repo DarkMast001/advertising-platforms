@@ -1,0 +1,13 @@
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\WebServiceForAdvertisingPlatforms.exe
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\appsettings.json
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\WebServiceForAdvertisingPlatforms.dll
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\WebServiceForAdvertisingPlatforms.deps.json
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\WebServiceForAdvertisingPlatforms.runtimeconfig.json
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\WebServiceForAdvertisingPlatforms.pdb
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\RegionTreeLib.dll
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Release\net8.0\PubTmp\Out\RegionTreeLib.pdb
