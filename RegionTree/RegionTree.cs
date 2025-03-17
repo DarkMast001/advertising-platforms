@@ -1,15 +1,8 @@
-﻿using System;
-using System.Globalization;
-using System.IO;
-using static RegionTreeLib.RegionTree;
-using System.Xml.Linq;
-using System.Reflection;
-
-namespace RegionTreeLib
+﻿namespace RegionTreeLib
 {
     public class RegionTree
     {
-        public class Node
+        private class Node
         {
             private string nodeName;
             private int adIndex;
@@ -57,17 +50,33 @@ namespace RegionTreeLib
         }
 
         /// <summary>
-        /// Конструктор создания дерева регионов
+        /// Инициализация дерева регионов
         /// </summary>
-        /// <param name="pathToFile">Путь до файла, в котором в строчку написаны рекламные площадки и их регион</param>
-        public RegionTree(string pathToFile) 
+        public RegionTree()
+        {
+            head = null;
+            allAds = new List<string>() { "" };
+        }
+
+        /// <summary>
+        /// Построение дерева
+        /// </summary>
+        /// <param name="pathToFile">Путь до файла</param>
+        /// <exception cref="FileNotFoundException">В случае если такого файла не существует</exception>
+        public void createTree(string? pathToFile)
         {
             head = null;
             allAds = new List<string>() { "" };
 
             if (!File.Exists(pathToFile))
             {
-                return;
+                throw new FileNotFoundException($"File is not exist.");
+            }
+
+            string fileExtension = Path.GetExtension(pathToFile);
+            if (fileExtension.ToLower() != ".txt")
+            {
+                throw new ArgumentException("File must have a .txt extension.");
             }
 
             string[] lines = File.ReadAllLines(pathToFile);
@@ -90,15 +99,33 @@ namespace RegionTreeLib
         }
 
         /// <summary>
-        /// Делает дерево
+        /// 
         /// </summary>
-        /// <param name="note">Строчка из файла вида "Ревдинский рабочий:/ru/svrd/revda,/ru/svrd/pervik"</param>
-        /// <exception cref="Exception">Если уже было создано дерево с корневым каталогом /ru, а пользователь пытается добавить /en.</exception>
-        private void addNoteToTree(string note)
+        /// <param name="note"></param>
+        /// <exception cref="Exception">В случае попытки изменить уже созданный корневой элемент дерева. 
+        /// Например, если уже было создано дерево с корневым элементом /ru, а пользователь пытается добавить /en.</exception>
+
+        /// <summary>
+        /// Добавляет узел в дерево
+        /// </summary>
+        /// <param name="note">Строчка вида "Ревдинский рабочий:/ru/svrd/revda,/ru/svrd/pervik"</param>
+        /// <returns>Полный путь региона, который был добавлен последним. 
+        /// При успешной попытке добавить "/ru/svrd/revda,/ru/svrd/pervik" вернётся "/ru/svrd/pervik"</returns>
+        /// <exception cref="Exception">В случае попытки изменить уже созданный корневой элемент дерева.
+        /// Например, если уже было создано дерево с корневым элементом /ru, а пользователь пытается добавить /en.</exception>
+        public string addNoteToTree(string? note)
         {
+            if (note == "" || note is null)
+            {
+                return "";
+            }
             string adName;
 
-            List<string> regions = parseNote(note, out adName);
+            List<string>? regions = parseNote(note, out adName);
+            if (regions is null)
+            {
+                return "";
+            }
 
             int index = -1;
             if (!allAds.Contains(adName))
@@ -110,7 +137,13 @@ namespace RegionTreeLib
             foreach (string concreteRegion in regions)
             {
                 List<string> regionPathComponents = concreteRegion.Split('/').ToList();
-                regionPathComponents.RemoveAll(item => item == "");
+                regionPathComponents.RemoveAt(0);
+                if (regionPathComponents.Count < 1 || regionPathComponents.Contains(""))
+                {
+                    allAds.RemoveAt(allAds.Count - 1);
+                    return "";
+                }
+                //regionPathComponents.RemoveAll(item => item == "");
 
                 if (head == null)
                 {
@@ -124,9 +157,11 @@ namespace RegionTreeLib
                     {
                         // Условие выполнится в том случае, если уже было создано дерево с корневым
                         // каталогом /ru, а пользователь пытается добавить /en.
-                        // Ошибка кричисеская - кидаем исключение
+                        // Ошибка критическая - кидаем исключение
                         if (regionPathComponents[i] != current.NodeName)
                         {
+                            head = null;
+                            allAds = new List<string>() { "" };
                             throw new Exception("Different root directory names");
                         }
                         current.AdIndex = index;
@@ -146,30 +181,7 @@ namespace RegionTreeLib
                     }
                 }
             }
-        }
-
-        public static void seeFilesInExetutableDirectory()
-        {
-            string currentDirectory = Directory.GetCurrentDirectory();
-
-            Console.WriteLine($"Текущая директория: {currentDirectory}");
-            Console.WriteLine("----------------------------------------");
-
-            string[] directories = Directory.GetDirectories(currentDirectory);
-
-            Console.WriteLine("Каталоги:");
-            foreach (string dir in directories)
-            {
-                Console.WriteLine(dir);
-            }
-
-            string[] files = Directory.GetFiles(currentDirectory);
-
-            Console.WriteLine("\nФайлы:");
-            foreach (string file in files)
-            {
-                Console.WriteLine(file);
-            }
+            return string.Join("/", regions[regions.Count - 1]);
         }
 
         /// <summary>
@@ -177,15 +189,20 @@ namespace RegionTreeLib
         /// </summary>
         /// <param name="pathToNote">Строка с заданной локацией. Пример заданной локации: /ru/svrd/revda</param>
         /// <returns>Список рекламных площадок в этой локации</returns>
-        public List<string>? findNote(string? pathToNote)
+        public List<string> findNote(string? pathToNote)
         {
             if (pathToNote == null || pathToNote == "" || isTreeCreated() == false)
-                return null;
+                return new List<string>();
             List<string> regions = pathToNote.Split('/').ToList();
-            regions.RemoveAll(item => item == "");
+
+            regions.RemoveAt(0);
+            if (regions.Count < 1 || regions.Contains(""))
+            {
+                return new List<string>();
+            }
 
             if (head == null || regions.Count == 0 || head.NodeName != regions[0])
-                return null;
+                return new List<string>();
             Node? current = head;
 
             List<string> ads = new List<string>();
@@ -222,9 +239,14 @@ namespace RegionTreeLib
         /// <returns>
         /// Массив записей регионов вида: ["/ru/svrd/revda", "/ru/svrd/pervik"]
         /// </returns>
-        private List<string> parseNote(string note, out string adName)
+        private List<string>? parseNote(string note, out string adName)
         {
             string[] args = note.Split(':');
+            if (args.Length < 2)
+            {
+                adName = "";
+                return null;
+            }
             adName = args[0];
 
             string[] regions = args[1].Split(",");

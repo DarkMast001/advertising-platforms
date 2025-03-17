@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionTreeLib", "RegionTree
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTester", "..\LibraryTester\LibraryTester.csproj", "{61115416-70B5-475D-B8DD-6B3CF3355CEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionTreeLib.Tests", "..\RegionTreeLib.Tests\RegionTreeLib.Tests.csproj", "{7AD08D44-D48B-4B13-9014-C2A99F41B6EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{61115416-70B5-475D-B8DD-6B3CF3355CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61115416-70B5-475D-B8DD-6B3CF3355CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61115416-70B5-475D-B8DD-6B3CF3355CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD08D44-D48B-4B13-9014-C2A99F41B6EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD08D44-D48B-4B13-9014-C2A99F41B6EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD08D44-D48B-4B13-9014-C2A99F41B6EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD08D44-D48B-4B13-9014-C2A99F41B6EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
