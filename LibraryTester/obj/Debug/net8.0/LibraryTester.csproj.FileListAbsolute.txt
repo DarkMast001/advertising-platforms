@@ -16,3 +16,4 @@ D:\Институт\offer-jun-cs\LibraryTester\obj\Debug\net8.0\refint\LibraryTe
 D:\Институт\offer-jun-cs\LibraryTester\obj\Debug\net8.0\LibraryTester.pdb
 D:\Институт\offer-jun-cs\LibraryTester\obj\Debug\net8.0\LibraryTester.genruntimeconfig.cache
 D:\Институт\offer-jun-cs\LibraryTester\obj\Debug\net8.0\ref\LibraryTester.dll
+D:\Институт\offer-jun-cs\LibraryTester\obj\Debug\net8.0\LibraryTester.sourcelink.json
