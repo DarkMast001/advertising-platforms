@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebServiceForAdvertisingPlatforms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+156ca322021c87cd184733db01ffb8f7cd1cac77")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a8768772d3645abffcae3945e9899ed56d2c91b")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebServiceForAdvertisingPlatforms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebServiceForAdvertisingPlatforms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
