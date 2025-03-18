@@ -167,6 +167,7 @@ Node svrd выглядит вот так:
    > info: Microsoft.Hosting.Lifetime[0]
    > Content root path: D:\Институт\TEST\advertising-platforms\WebServiceForAdvertisingPlatforms\bin\Release\net8.0\publish
 5. Открываете Postman
+
    _5.1. Загрузка файла_
    `POST` запрос, вводите следующее: `http://localhost:5000/api/Ads/upload`
    В теле запроса выбираете `Body`, затем `raw` и пишете путь к файлу. Пример: `"D://regions.txt"`
