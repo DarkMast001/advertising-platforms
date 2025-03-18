@@ -62,10 +62,10 @@ private class Node
 Разберём на конкретном примере то, как будет выглядеть дерево.
 Допустим есть файл, в котором находятся следующие строки:
 
-> Яндекс.Директ:/ru
-> Ревдинский рабочий:/ru/svrd/revda,/ru/svrd/pervik
-> Газета уральских москвичей:/ru/msk,/ru/permobl,/ru/chelobl
-> Крутая реклама:/ru/svrd
+> Яндекс.Директ:/ru<br>
+> Ревдинский рабочий:/ru/svrd/revda,/ru/svrd/pervik<br>
+> Газета уральских москвичей:/ru/msk,/ru/permobl,/ru/chelobl<br>
+> Крутая реклама:/ru/svrd<br>
 
 Дерево будет выглядеть следующим образом:
 
@@ -75,23 +75,23 @@ private class Node
 
 Node head выглядит следующим образом:
 
-> nodeName: "ru"
-> adIndex: 0
-> regions:
+> nodeName: "ru"<br>
+> adIndex: 0<br>
+> regions:<br>
 >
-> > svrd: ссылка на Node с названием "svrd"
-> > msk: ссылка на Node с названием "msk"
-> > permobl: ссылка на Node с названием "permobl"
-> > chelobl: ссылка на Node с названием "chelobl"
+> > svrd: ссылка на Node с названием "svrd"<br>
+> > msk: ссылка на Node с названием "msk"<br>
+> > permobl: ссылка на Node с названием "permobl"<br>
+> > chelobl: ссылка на Node с названием "chelobl"<br>
 
 Node svrd выглядит вот так:
 
-> nodeName: "svrd"
-> adIndex: 3
-> regions:
+> nodeName: "svrd"<br>
+> adIndex: 3<br>
+> regions:<br>
 >
-> > revda: ссылка на Node с названием "revda"
-> > pervik: ссылка на Node с названием "pervik"
+> > revda: ссылка на Node с названием "revda"<br>
+> > pervik: ссылка на Node с названием "pervik"<br>
 
 И так далее...
 
@@ -158,13 +158,13 @@ Node svrd выглядит вот так:
 2. Переходите в `.../WebServiceForAdvertisingPlatforms/bin/Release/net8.0/publish`
 3. Запускаете `WebServiceForAdvertisingPlatforms.exe`.
 4. Если всё успешно, то должна открыться консоль, содержание которой будет примерно следующее:
-   > info: Microsoft.Hosting.Lifetime[14]
-   > Now listening on: http://localhost:5000
-   > info: Microsoft.Hosting.Lifetime[0]
-   > Application started. Press Ctrl+C to shut down.
-   > info: Microsoft.Hosting.Lifetime[0]
-   > Hosting environment: Production
-   > info: Microsoft.Hosting.Lifetime[0]
+   > info: Microsoft.Hosting.Lifetime[14]<br>
+   > Now listening on: http://localhost:5000<br>
+   > info: Microsoft.Hosting.Lifetime[0]<br>
+   > Application started. Press Ctrl+C to shut down.<br>
+   > info: Microsoft.Hosting.Lifetime[0]<br>
+   > Hosting environment: Production<br>
+   > info: Microsoft.Hosting.Lifetime[0]<br>
    > Content root path: D:\Институт\TEST\advertising-platforms\WebServiceForAdvertisingPlatforms\bin\Release\net8.0\publish
 5. Открываете Postman
 
