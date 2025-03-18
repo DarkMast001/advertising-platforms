@@ -51,12 +51,12 @@ public class RegionTree {
 3. Хэш-таблица, которая хранит в себе все вложенные на 1 уровень регионы в конкретный регион.
 
 ```csharp
-	private class Node
-	{
-		private string nodeName;
-		private int adIndex;
-		private Dictionary<string, Node?> regions = new Dictionary<string, Node?>();
-	}
+private class Node
+{
+    private string nodeName;
+    private int adIndex;
+    private Dictionary<string, Node?> regions = new Dictionary<string, Node?>();
+}
 ```
 
 Разберём на конкретном примере то, как будет выглядеть дерево.
