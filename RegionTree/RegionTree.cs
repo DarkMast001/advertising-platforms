@@ -99,13 +99,6 @@
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="note"></param>
-        /// <exception cref="Exception">В случае попытки изменить уже созданный корневой элемент дерева. 
-        /// Например, если уже было создано дерево с корневым элементом /ru, а пользователь пытается добавить /en.</exception>
-
-        /// <summary>
         /// Добавляет узел в дерево
         /// </summary>
         /// <param name="note">Строчка вида "Ревдинский рабочий:/ru/svrd/revda,/ru/svrd/pervik"</param>
@@ -143,7 +136,6 @@
                     allAds.RemoveAt(allAds.Count - 1);
                     return "";
                 }
-                //regionPathComponents.RemoveAll(item => item == "");
 
                 if (head == null)
                 {
