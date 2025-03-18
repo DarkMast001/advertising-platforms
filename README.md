@@ -147,7 +147,31 @@ Node svrd выглядит вот так:
 
     Пример запроса в Postman:
 
-    - URL: `http://localhost:5288/api/ads/search?region=/ru/chelobl`
+    - URL для `http`: `http://localhost:5104/api/ads/search?region=/ru/chelobl`
+    - Или для `http`: `http://localhost:5000/api/ads/search?region=/ru/chelobl`
+    - URL для `https`: `https://localhost:7014/api/ads/search?region=/ru/chelobl`
     - Method: `GET`
 
 ### Установка и запуск
+
+1. `git clone` в удобную вам папку
+2. Переходите в `.../WebServiceForAdvertisingPlatforms/bin/Release/net8.0/publish`
+3. Запускаете `WebServiceForAdvertisingPlatforms.exe`.
+4. Если всё успешно, то должна открыться консоль, содержание которой будет примерно следующее:
+   > info: Microsoft.Hosting.Lifetime[14]
+   > Now listening on: http://localhost:5000
+   > info: Microsoft.Hosting.Lifetime[0]
+   > Application started. Press Ctrl+C to shut down.
+   > info: Microsoft.Hosting.Lifetime[0]
+   > Hosting environment: Production
+   > info: Microsoft.Hosting.Lifetime[0]
+   > Content root path: D:\Институт\TEST\advertising-platforms\WebServiceForAdvertisingPlatforms\bin\Release\net8.0\publish
+5. Открываете Postman
+   _5.1. Загрузка файла_
+   `POST` запрос, вводите следующее: `http://localhost:5000/api/Ads/upload`
+   В теле запроса выбираете `Body`, затем `raw` и пишете путь к файлу. Пример: `"D://regions.txt"`
+   Если всё успешно, то код будет `200 OK` и будет надпись `Данные успешно загружены.`
+
+   _5.2. Поиск рекламной площадки_
+   `GET` запрос, вводите следующее: `http://localhost:5000/api/Ads/search?region=/ru`
+   Если всё успешно, то будет код `200 OK`, и если вы туда загружали txt файл, который был приведён в качестве примера выше, то вам будет выведен массив: `["Яндекс.Директ"]`
