@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebServiceForAdvertisingPlatforms.Service;
 
 namespace WebServiceForAdvertisingPlatforms.Test
@@ -7,10 +8,10 @@ namespace WebServiceForAdvertisingPlatforms.Test
     public class RegionTreeServiceTests
     {
         [Fact]
-        public void GetAdsByRegion_ReturnsCorrectAds()
+        public async Task GetAdsByRegion_ReturnsCorrectAds()
         {
             RegionTreeService service = new RegionTreeService();
-            service.LoadDataFromFile("D://regions.txt");
+            await service.LoadDataFromFile("D://regions.txt");
 
             var result = service.GetAdsByRegion("/ru");
 
@@ -23,9 +24,9 @@ namespace WebServiceForAdvertisingPlatforms.Test
         {
             RegionTreeService service = new RegionTreeService();
 
-            Assert.Throws<FileNotFoundException>(() => service.LoadDataFromFile("zxc"));
-            Assert.Throws<FileNotFoundException>(() => service.LoadDataFromFile("./zxc"));
-            Assert.Throws<ArgumentException>(() => service.LoadDataFromFile("D://regions.json"));
+            Assert.ThrowsAsync<FileNotFoundException>(() => service.LoadDataFromFile("zxc"));
+            Assert.ThrowsAsync<FileNotFoundException>(() => service.LoadDataFromFile("./zxc"));
+            Assert.ThrowsAsync<ArgumentException>(() => service.LoadDataFromFile("D://regions.json"));
         }
     }
 }

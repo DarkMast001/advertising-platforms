@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebServiceForAdvertisingPlatforms.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a8768772d3645abffcae3945e9899ed56d2c91b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18a7761d7c12ff09e3a56f9f7687992ded64d2bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebServiceForAdvertisingPlatforms.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebServiceForAdvertisingPlatforms.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -12,10 +12,10 @@ namespace WebServiceForAdvertisingPlatforms.Test
     public class AdsControllerTests
     {
         [Fact]
-        public void SearchAdsWithCorrectData()
+        public async Task SearchAdsWithCorrectData()
         {
             RegionTreeService regionTreeService = new RegionTreeService();
-            regionTreeService.LoadDataFromFile("D://regions.txt");
+            await regionTreeService.LoadDataFromFile("D://regions.txt");
 
             AdsController controller = new AdsController(regionTreeService);
 
@@ -28,10 +28,10 @@ namespace WebServiceForAdvertisingPlatforms.Test
         }
 
         [Fact]
-        public void SearchAdsForNonExistentRegion()
+        public async Task SearchAdsForNonExistentRegion()
         {
             RegionTreeService regionTreeService = new RegionTreeService();
-            regionTreeService.LoadDataFromFile("D://regions.txt");
+            await regionTreeService.LoadDataFromFile("D://regions.txt");
 
             AdsController controller = new AdsController(regionTreeService);
 
@@ -43,24 +43,24 @@ namespace WebServiceForAdvertisingPlatforms.Test
         }
 
         [Fact]
-        public void UploadFileWhenFileExists()
+        public async Task UploadFileWhenFileExists()
         {
             RegionTreeService regionTreeService = new RegionTreeService();
             AdsController controller = new AdsController(regionTreeService);
 
-            var result = controller.UploadFile("D://regions.txt");
+            var result = await controller.UploadFile("D://regions.txt");
 
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal("Данные успешно загружены.", okResult.Value);
         }
 
         [Fact]
-        public void UploadFileWhenFileDoesNotExist()
+        public async Task UploadFileWhenFileDoesNotExist()
         {
             RegionTreeService regionTreeService = new RegionTreeService();
             AdsController controller = new AdsController(regionTreeService);
 
-            var result = controller.UploadFile("D://zxcccc.txt");
+            var result = await controller.UploadFile("D://zxcccc.txt");
 
             var notFoundResult = Assert.IsType<NotFoundObjectResult>(result);
             Assert.Equal("File is not exist.", notFoundResult.Value);
