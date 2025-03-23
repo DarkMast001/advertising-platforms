@@ -1,16 +1,22 @@
 ﻿using RegionTreeLib;
 
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using Serilog;
+using System.Threading.Tasks;
+
 namespace LibraryTester
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.WriteLine("Введите имя файла: ");
             string? pathToFile = "./regions.txt";
             //string? pathToFile = Console.ReadLine();
             RegionTree rt = new RegionTree();
-            rt.createTree(pathToFile);
+            await rt.createTree(pathToFile);
 
             while (!rt.isTreeCreated())
             {
@@ -19,7 +25,7 @@ namespace LibraryTester
                 pathToFile = Console.ReadLine();
                 try
                 {
-                    rt.createTree(pathToFile);
+                    await rt.createTree(pathToFile);
                 }
                 catch (Exception ex)
                 {
