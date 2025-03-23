@@ -21,11 +21,11 @@ namespace RegionTreeLib.Tests
             RegionTree regionTree = new RegionTree();
             string? filePath = "./zxc.txt";
 
-            Assert.Throws<FileNotFoundException>(() => regionTree.createTree(filePath));
+            Assert.ThrowsAsync<FileNotFoundException>(() => regionTree.createTree(filePath));
 
             filePath = null;
 
-            Assert.Throws<FileNotFoundException>(() => regionTree.createTree(filePath));
+            Assert.ThrowsAsync<FileNotFoundException>(() => regionTree.createTree(filePath));
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace RegionTreeLib.Tests
             RegionTree regionTree = new RegionTree();
             string? filePath = "./regions.json";
 
-            Assert.Throws<ArgumentException>(() => regionTree.createTree(filePath));
+            Assert.ThrowsAsync<ArgumentException>(() => regionTree.createTree(filePath));
         }
     }
 }

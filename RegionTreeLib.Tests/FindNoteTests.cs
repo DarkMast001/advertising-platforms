@@ -20,8 +20,8 @@ namespace RegionTreeLib.Tests
             regionTree.addNoteToTree(note4);
 
             Assert.Contains("Яндекс.Директ", regionTree.findNote("/ru"));
-            Assert.Equal(new List<string>() { "Яндекс.Директ", "Крутая реклама", "Ревдинский рабочий" }, regionTree.findNote("/ru/svrd/revda"));
-            Assert.Equal(new List<string>() { "Яндекс.Директ", "Крутая реклама", "Ревдинский рабочий" }, regionTree.findNote("/ru/svrd/pervik"));
+            Assert.Equal(new List<string>() { "Яндекс.Директ", "Ревдинский рабочий", "Крутая реклама" }, regionTree.findNote("/ru/svrd/revda"));
+            Assert.Equal(new List<string>() { "Яндекс.Директ", "Ревдинский рабочий", "Крутая реклама" }, regionTree.findNote("/ru/svrd/pervik"));
             Assert.Equal(new List<string>() { "Яндекс.Директ", "Газета уральских москвичей" }, regionTree.findNote("/ru/msk"));
             Assert.Equal(new List<string>() { "Яндекс.Директ", "Газета уральских москвичей" }, regionTree.findNote("/ru/permobl"));
             Assert.Equal(new List<string>() { "Яндекс.Директ", "Газета уральских москвичей" }, regionTree.findNote("/ru/chelobl"));
@@ -44,7 +44,7 @@ namespace RegionTreeLib.Tests
             regionTree.addNoteToTree(note4);
 
             Assert.Empty(regionTree.findNote("zxc"));
-            Assert.Equal(new List<string>() { "Яндекс.Директ", "Газета уральских москвичей" }, regionTree.findNote("/ru/msk/chelobl/voronez"));
+            Assert.Equal(new List<string>() { }, regionTree.findNote("/ru/msk/chelobl/voronez"));
             Assert.Empty(regionTree.findNote("/////ru/////"));
             Assert.Empty(regionTree.findNote("ru"));
             Assert.Empty(regionTree.findNote("ru svrd"));

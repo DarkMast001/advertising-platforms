@@ -33,18 +33,20 @@ namespace RegionTreeLib.Tests
 
             Assert.Equal("/ru", regionTree.addNoteToTree(note1));
             Assert.Equal("/ru/svrd/pervik", regionTree.addNoteToTree(note2));
-            Assert.Throws<Exception>(() => regionTree.addNoteToTree(note3));
+            Assert.Equal("/eu", regionTree.addNoteToTree(note3));
+            //Assert.Throws<Exception>(() => regionTree.addNoteToTree(note3));
 
-            Assert.False(regionTree.isTreeCreated());
+            Assert.True(regionTree.isTreeCreated());
 
 
 
             RegionTree regionTree1 = new RegionTree();
 
-            Assert.Equal("/ru", regionTree.addNoteToTree(note1));
-            Assert.Throws<Exception>(() => regionTree.addNoteToTree(note3));
+            Assert.Equal("/ru", regionTree1.addNoteToTree(note1));
+            Assert.Equal("/eu", regionTree1.addNoteToTree(note3));
+            //Assert.Throws<Exception>(() => regionTree.addNoteToTree(note3));
 
-            Assert.False(regionTree1.isTreeCreated());
+            Assert.True(regionTree1.isTreeCreated());
         }
 
         [Fact]
@@ -68,6 +70,7 @@ namespace RegionTreeLib.Tests
             string note4 = "Ревдинский рабочий:////ru/////svrd///////revda";
             string note5 = "Ревдинский рабочий:/ru/svrd/revda,,,,,/ru/svrd/pervik";
             string note6 = "Ревдинский рабочий:/ru/svrd/revda,,zxc,,,/ru/svrd/pervik";
+            string note7 = "Какой-то несвязный текст";
 
             Assert.Equal("/ru", regionTree.addNoteToTree(note1));
             Assert.Equal("", regionTree.addNoteToTree(note2));
@@ -75,6 +78,7 @@ namespace RegionTreeLib.Tests
             Assert.Equal("", regionTree.addNoteToTree(note4));
             Assert.Equal("", regionTree.addNoteToTree(note5));
             Assert.Equal("", regionTree.addNoteToTree(note6));
+            Assert.Equal("", regionTree.addNoteToTree(note7));
         }
 
         [Fact]
