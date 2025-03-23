@@ -1,11 +1,5 @@
 ﻿using RegionTreeLib;
 
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Serilog;
-using System.Threading.Tasks;
-
 namespace LibraryTester
 {
     internal class Program
