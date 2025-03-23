@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RegionTreeLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+156ca322021c87cd184733db01ffb8f7cd1cac77")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18a7761d7c12ff09e3a56f9f7687992ded64d2bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("RegionTreeLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RegionTreeLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
