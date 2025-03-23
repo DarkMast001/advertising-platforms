@@ -1,0 +1,14 @@
+Now listening on: https://localhost:7014
+Now listening on: http://localhost:5104
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms
+UploadFile called with filePath: D://regions.txt
+Loading data from file: D://regions.txt
+Data successfully loaded.
+File uploaded successfully.
+SearchAds called with region: /ru
+Searching ads for region: /ru
+SearchAds called with region: /ru/msk
+Searching ads for region: /ru/msk
+Application is shutting down...

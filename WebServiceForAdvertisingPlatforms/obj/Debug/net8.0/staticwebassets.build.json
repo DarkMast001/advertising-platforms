@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "JZL0k4GMMAWJFNjG+BuuK6wtHcy0bmcIFGvc5TvVSPo=",
+  "Hash": "jPOj34Q8VsD39beQ6ZUJmFrQre53czmdrrLlWNdHQUk=",
   "Source": "WebServiceForAdvertisingPlatforms",
   "BasePath": "_content/WebServiceForAdvertisingPlatforms",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "WebServiceForAdvertisingPlatforms\\wwwroot",
+      "Source": "WebServiceForAdvertisingPlatforms",
+      "ContentRoot": "D:\\Институт\\offer-jun-cs\\WebServiceForAdvertisingPlatforms\\wwwroot\\",
+      "BasePath": "_content/WebServiceForAdvertisingPlatforms",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Институт\\offer-jun-cs\\WebServiceForAdvertisingPlatforms\\wwwroot\\index.html",
+      "SourceId": "WebServiceForAdvertisingPlatforms",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Институт\\offer-jun-cs\\WebServiceForAdvertisingPlatforms\\wwwroot\\",
+      "BasePath": "_content/WebServiceForAdvertisingPlatforms",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
 }

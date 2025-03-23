@@ -1,0 +1,4 @@
+Now listening on: http://localhost:5000
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Production
+Content root path: D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\bin\Release\net8.0\publish

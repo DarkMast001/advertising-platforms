@@ -1,4 +1,6 @@
+using Microsoft.Extensions.Logging;
 using WebServiceForAdvertisingPlatforms.Service;
+using WebServiceForAdvertisingPlatforms.Logging;
 
 namespace WebServiceForAdvertisingPlatforms
 {
@@ -8,6 +10,8 @@ namespace WebServiceForAdvertisingPlatforms
         {
             var builder = WebApplication.CreateBuilder(args);
 
+             builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+
             // Add services to the container.
             builder.Services.AddSingleton<RegionTreeService>();
             builder.Services.AddControllers();
@@ -16,6 +20,10 @@ namespace WebServiceForAdvertisingPlatforms
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            //app.UseStaticFiles();
+
+            //app.MapGet("/", () => Results.Redirect("/index.html"));
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -28,8 +36,13 @@ namespace WebServiceForAdvertisingPlatforms
 
             app.UseAuthorization();
 
-
             app.MapControllers();
+
+            //app.Run(async (context) =>
+            //{
+            //    app.Logger.LogInformation($"Path: {context.Request.Path}  Time:{DateTime.Now.ToLongTimeString()}");
+            //    await context.Response.WriteAsync("Hello World!");
+            //});
 
             app.Run();
         }

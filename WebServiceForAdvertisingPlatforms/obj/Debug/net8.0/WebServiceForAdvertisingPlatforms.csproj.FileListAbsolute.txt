@@ -33,3 +33,4 @@ D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Debug\net
 D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Debug\net8.0\WebServiceForAdvertisingPlatforms.pdb
 D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Debug\net8.0\WebServiceForAdvertisingPlatforms.genruntimeconfig.cache
 D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\obj\Debug\net8.0\ref\WebServiceForAdvertisingPlatforms.dll
+D:\Институт\offer-jun-cs\WebServiceForAdvertisingPlatforms\bin\Debug\net8.0\WebServiceForAdvertisingPlatforms.staticwebassets.runtime.json
